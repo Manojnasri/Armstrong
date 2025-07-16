@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Armstrong Number Checker</title>
+    <style>
+        .card .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .card .btn:hover {
+            background-color: #45a049;
+        }
+        .card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            text-align: center;
+            width: 300px;
+
+        }
+        .card h2{
+            color: #333;
+            margin-bottom: 20px;
+
+        }
+        body 
+        {
+            font-family: Arial, Helvetica, sans-serif ;
+            /* text-align: center; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #fof4f8;
+            
+        }
+       
+        .card #result {
+            margin-top: 20px;
+            font-size: 18px;
+            /* font-weight: bold; */
+            color: #444;
+        }
+    </style>
+    <script>
+        function isArmstrongNumber() {
+            let num = parseInt(prompt("Enter a number:"));
+            let sum = 0;
+            let temp = num;
+            let digits = num.toString().length;
+
+            while (temp > 0) {
+                let digit = temp % 10;
+                sum += Math.pow(digit, digits);
+                temp = Math.floor(temp / 10);
+            }
+
+            if (sum === num) {
+                document.getElementById("result").innerHTML = num + " is an Armstrong Number.";
+            } else {
+                document.getElementById("result").innerHTML = num + " is not an Armstrong Number.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="card">
+        <h2>Armstrong Number Checker</h2>
+        <button class="btn" onclick="isArmstrongNumber()">Check Number</button>
+        <p id="result"></p>
+    </div>
+</body>
+</html>
